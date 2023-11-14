@@ -19,4 +19,4 @@ def user_insertion(connection, number):
         
 
     connection.commit()
-    print("Students added successfully!")
+    print("Users were added successfully!")
