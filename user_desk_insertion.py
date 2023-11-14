@@ -1,39 +1,16 @@
-import random
-
-
-def user_workplace_insertion(connection, number_desks): # number_workplaces - количество worklaces, привязанные к user'у
-    cur = connection.cursor()
+def user_desk_insertion(connection, number_desks): # number_workplaces - количество worklaces, привязанные к user'у
+    cur = connection.cursor()   # копируем записи из desk
     
     cur.execute(
-        f"SELECT DISTINCT admin_id FROM Desk "
-        f"ORDER BY admin_id;"
+        f"SELECT desk_id, admin_id FROM Desk;"
     )
-    all_admins = list(map(lambda item: item[0], cur.fetchall()))
+    all_desks = list(cur.fetchall())
     
-    cur.execute(
-        f"SELECT desk_id FROM Desk;"
-    )
-    all_desks = list(map(lambda item: item[0], cur.fetchall()))
-    
-    count_workplaces = 0 # для того,чтобы каждый user, который admin workplace'а, был привязан к этой workplace
-    for user_id in all_admins:
-        available_user_workplaces = set(all_workplaces)
+    for desk_id, admin_id in all_desks:
         cur.execute(
-            f"INSERT INTO User_Work_place (user_id, work_place_id) "
-            f"VALUES ({user_id}, {all_workplaces[count_workplaces]})"
+            f"INSERT INTO User_Desk (user_id, desk_id) "
+            f"VALUES ({admin_id}, {desk_id})"
         )
-        available_user_workplaces.remove(all_workplaces[count_workplaces])
-        count_workplaces += 1
-        for _ in range(number_workplaces - 1):
-            workplace_to_add = random.choice(list(available_user_workplaces))
-            cur.execute(
-                f"INSERT INTO User_Work_place (user_id, work_place_id) "
-                f"VALUES ({user_id}, {workplace_to_add})"
-            )
-            available_user_workplaces.remove(workplace_to_add)
-            
-        
-        
 
     connection.commit()
-    print("User_workplaces were added successfully!")
+    print("User_desks were added successfully!")
