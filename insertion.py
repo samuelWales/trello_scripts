@@ -17,12 +17,12 @@ con = psycopg2.connect(
 )
 
 print("Connection created successfully!")
-user_insertion(connection = con, number = 200)
-workplace_insertion(connection = con)
-user_workplace_insertion(connection = con, number_workplaces = 3)
-desk_insertion(connection = con, number_desks = 3)
+# user_insertion(connection = con, number = 200)
+# workplace_insertion(connection = con)
+# user_workplace_insertion(connection = con, number_workplaces = 3)
+# desk_insertion(connection = con, number_desks = 3)
 user_desk_insertion(connection = con, number_desks = 3)
-group_insertion(connection = con)
+# group_insertion(connection = con)
 
 print('Everything is all right!')
 con.close()
