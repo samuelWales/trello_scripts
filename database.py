@@ -10,8 +10,7 @@ def generate_password():
     return password
 
 def generate_login():
-    characters = string.ascii_letters + string.digits + '!"#$%&()*+,-./:;<=>?@[\]^_{|}~'
-    login = ''.join(random.choice(characters) for _ in range(random.randint(1, 60)))
+    login = random.choice(LOGIN_LIST)
     
     return login
 
@@ -30,7 +29,38 @@ def generate_personality():
     
     
     
-    
+LOGIN_LIST = [
+    "Starlight12345",
+    "GreenTechMaster",
+    "SilverDragon789",
+    "OceanExplorer22",
+    "CrimsonTiger007",
+    "GoldenEagle2023",
+    "RubyRainbow12345",
+    "BlueberryPancake",
+    "GalacticGadgeteer",
+    "FireflyWhisperer",
+    "JadeJourneyer123",
+    "EmeraldEnigma17",
+    "FrostyMountain11",
+    "NeonNebulaExplorer"
+    "SolarSystemSailor",
+    "MidnightRider2023",
+    "AuroraBorealis99",
+    "PixelPioneer2023",
+    "SunriseSurfer456",
+    "DeepSpaceDiver111",
+    "CosmicAdventurer",
+    "WildernessWalker",
+    "SapphireSeeker22",
+    "ThunderTech007",
+    "DreamyGalaxy123",
+    "LunarLandscape22",
+    "TechSavvyTraveler",
+    "StarryNightSky88",
+    "RainbowDreamer123",
+    "AstralVoyager2023"
+]
     
 MAIL_SERVER_LIST = [
     "gmail.com", "yandex.ru", "outlook.com", "mail.ru"
