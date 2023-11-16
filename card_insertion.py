@@ -27,7 +27,7 @@ def card_insertion(connection, number): # в одном workplace могут б�
         progress_bar = random.randint(0, 100)
         for group_id in all_groups:
             cur.execute(
-                f"INSERT INTO card (name, description, deadlines, progress_bar, group_id) "
+                f"INSERT INTO Card (name, description, deadlines, progress_bar, group_id) "
                 f"VALUES (\'{name}\', \'{description}\', \'{deadlines}\', {progress_bar}, {group_id})"
             )  
         
